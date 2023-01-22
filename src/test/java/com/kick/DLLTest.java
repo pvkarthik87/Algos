@@ -60,9 +60,12 @@ class DLLTest {
     }
 
     @Test
-    void delete_zero_element() {
+    void delete_all_element() {
+        // given
+        subject.insert(10);
 
         // when
+        subject.delete(10);
 
         // then
         assertEquals("[]", subject.toString());
@@ -70,15 +73,44 @@ class DLLTest {
     }
 
     @Test
-    void delete_one_element() {
+    void delete_start_element() {
         // given
         subject.insert(10);
+        subject.insert(20);
 
         // when
-        subject.delete();
+        subject.delete(10);
 
         // then
-        assertEquals("[]", subject.toString());
-        assertEquals(0, subject.getSize());
+        assertEquals("[(20)]", subject.toString());
+        assertEquals(1, subject.getSize());
+    }
+
+    @Test
+    void delete_end_element() {
+        // given
+        subject.insert(10);
+        subject.insert(20);
+
+        // when
+        subject.delete(20);
+
+        // then
+        assertEquals("[(10)]", subject.toString());
+        assertEquals(1, subject.getSize());
+    }
+
+    @Test
+    void delete_middle_element() {
+        subject.insert(10);
+        subject.insert(20);
+        subject.insert(30);
+
+        // when
+        subject.delete(20);
+
+        // then
+        assertEquals("[(10,30)(10,30)]", subject.toString());
+        assertEquals(2, subject.getSize());
     }
 }

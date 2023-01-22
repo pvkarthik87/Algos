@@ -20,13 +20,38 @@ public class DLL {
         }
     }
 
-    public void delete() {
-        if (start != null) {
-            start = start.next;
-            if (start != null) {
-                start.prev = null;
+    public void delete(int element) {
+        Node tmp = start;
+        Node prev = null;
+        while (tmp != null && tmp.value != element) {
+            prev = tmp;
+            tmp = tmp.next;
+        }
+
+        if (tmp != null) {
+            if (prev != null) {
+                prev.next = tmp.next;
+            }
+            if (tmp.next != null) {
+                tmp.next.prev = prev;
             }
             size--;
+            if (size == 0) {
+                start = null;
+                end = null;
+            }
+            if (tmp == start) {
+                start = start.next;
+                if (start != null) {
+                    start.prev = null;
+                }
+            }
+            if (tmp == end) {
+                end = end.prev;
+                if (end != null) {
+                    end.next = null;
+                }
+            }
         }
     }
 
