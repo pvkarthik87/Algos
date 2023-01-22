@@ -30,7 +30,7 @@ class DLLTest {
         subject.insert(10);
 
         // then
-        assertEquals("[(10)]", subject.toString());
+        assertEquals("[(-,10,-)]", subject.toString());
         assertEquals(1, subject.getSize());
     }
 
@@ -42,7 +42,7 @@ class DLLTest {
         subject.insert(20);
 
         // then
-        assertEquals("[(10,20)(10,20)]", subject.toString());
+        assertEquals("[(-,10,20)(10,20,-)]", subject.toString());
         assertEquals(2, subject.getSize());
     }
 
@@ -55,7 +55,7 @@ class DLLTest {
         subject.insert(30);
 
         // then
-        assertEquals("[(10,20)(10,20,30)(20,30)]", subject.toString());
+        assertEquals("[(-,10,20)(10,20,30)(20,30,-)]", subject.toString());
         assertEquals(3, subject.getSize());
     }
 
@@ -82,7 +82,7 @@ class DLLTest {
         subject.delete(10);
 
         // then
-        assertEquals("[(20)]", subject.toString());
+        assertEquals("[(-,20,-)]", subject.toString());
         assertEquals(1, subject.getSize());
     }
 
@@ -96,7 +96,7 @@ class DLLTest {
         subject.delete(20);
 
         // then
-        assertEquals("[(10)]", subject.toString());
+        assertEquals("[(-,10,-)]", subject.toString());
         assertEquals(1, subject.getSize());
     }
 
@@ -110,7 +110,7 @@ class DLLTest {
         subject.delete(20);
 
         // then
-        assertEquals("[(10,30)(10,30)]", subject.toString());
+        assertEquals("[(-,10,30)(10,30,-)]", subject.toString());
         assertEquals(2, subject.getSize());
     }
 }

@@ -66,15 +66,11 @@ public class DLL {
         Node tmp = start;
         while (tmp != null) {
             sb.append("(");
-            if (tmp.prev != null) {
-                sb.append(tmp.prev.value);
-                sb.append(",");
-            }
+            sb.append(tmp.prev != null ? tmp.prev.value : "-");
+            sb.append(",");
             sb.append(tmp.value);
-            if (tmp.next != null) {
-                sb.append(",");
-                sb.append(tmp.next.value);
-            }
+            sb.append(",");
+            sb.append(tmp.next != null ? tmp.next.value : "-");
             sb.append(")");
             tmp = tmp.next;
         }
