@@ -20,6 +20,16 @@ public class DLL {
         }
     }
 
+    public void delete() {
+        if (start != null) {
+            start = start.next;
+            if (start != null) {
+                start.prev = null;
+            }
+            size--;
+        }
+    }
+
     public int getSize() {
         return size;
     }
