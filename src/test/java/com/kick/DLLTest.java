@@ -33,4 +33,29 @@ class DLLTest {
         assertEquals("[(10)]", subject.toString());
         assertEquals(1, subject.getSize());
     }
+
+    @Test
+    void insert_two_elements() {
+
+        // when
+        subject.insert(10);
+        subject.insert(20);
+
+        // then
+        assertEquals("[(10,20)(10,20)]", subject.toString());
+        assertEquals(2, subject.getSize());
+    }
+
+    @Test
+    void insert_three_elements() {
+
+        // when
+        subject.insert(10);
+        subject.insert(20);
+        subject.insert(30);
+
+        // then
+        assertEquals("[(10,20)(10,20,30)(20,30)]", subject.toString());
+        assertEquals(3, subject.getSize());
+    }
 }
