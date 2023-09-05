@@ -1,4 +1,4 @@
-package com.kick;
+package com.kick.dll;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

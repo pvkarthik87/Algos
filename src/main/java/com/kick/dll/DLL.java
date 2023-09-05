@@ -1,4 +1,4 @@
-package com.kick;
+package com.kick.dll;
 
 public class DLL {
     private int size = 0;
